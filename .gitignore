@@ -1,0 +1,5 @@
+#PHPStorm project folder
+.idea/
+
+/vendor/
+/config/
