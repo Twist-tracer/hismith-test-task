@@ -1,0 +1,10 @@
+{
+  "name": "hismith_guests_book",
+  "description": "Test task for hismith",
+  "authors": [
+    "Twist-tracer"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
