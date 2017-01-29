@@ -1,0 +1,20 @@
+# Установка внутренней кодировки
+AddDefaultCharset utf-8
+AddCharset utf-8 *
+
+<IfModule mod_charset.c>
+CharsetSourceEnc utf-8
+CharsetDefault utf-8
+</IfModule>
+
+# ЧПУ
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^.htaccess$ - [F]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php
+</IfModule>
