@@ -1,5 +1,20 @@
 #PHPStorm project folder
 .idea/
 
+#Vendors
+/app/Frontend/node_modules/
+/app/Frontend/bower_components/
 /vendor/
-/config/
+
+#Cach and logs
+/var/
+
+#Assets
+/web/assets/
+
+#DB config
+/app/Config/db.php
+
+#min files
+/app/Frontend/**/*.min.js
+/app/Frontend/**/*.min.css
