@@ -1,7 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Касьян
- * Date: 25.01.2017
- * Time: 7:15
- */
+
+if(APP_PROD) {
+    $connectionParams = [];
+} elseif(APP_DEV) {
+    $connectionParams = [
+        'example' => [
+            'dbname' => 'hismith',
+            'user' => 'root',
+            'password' => NULL,
+            'host' => 'localhost',
+            'driver' => 'pdo_mysql',
+            'charset' => 'utf8'
+        ]
+    ];
+}
+
+return $connectionParams;

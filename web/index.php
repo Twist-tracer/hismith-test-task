@@ -1,10 +1,22 @@
 <?php
+defined('BASEPATH') OR define('BASEPATH', __DIR__ . '/../');
+defined('APP_MODE') OR define('APP_MODE', 'dev');
 
-ini_set('display_errors', 0);
+require_once BASEPATH . 'app/Bootstrap.php';
 
-require_once __DIR__.'/../vendor/autoload.php';
+switch(APP_MODE) {
+    case 'prod':
+        define('APP_PROD', TRUE);
+        define('APP_DEV', FALSE);
+        break;
+    case 'dev':
+        define('APP_PROD', FALSE);
+        define('APP_DEV', TRUE);
+}
 
-$app = require __DIR__.'/../src/app.php';
-require __DIR__.'/../config/prod.php';
-require __DIR__.'/../src/controllers.php';
-$app->run();
+try {
+    $bootstrap = new Bootstrap();
+    $bootstrap->run();
+} catch (\Exception $exc) {
+    echo $exc->getMessage();
+}
