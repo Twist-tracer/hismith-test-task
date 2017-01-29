@@ -1,0 +1,42 @@
+{% set template = "layouts/" ~ layout ~ ".twig" %}
+
+{% extends template %}
+
+{% block content %}
+
+<div class="panel panel-info recall">
+    <div class="panel-heading recall-header">
+        <ul class="recall-header-list">
+            <li class="recall-header-list-item">
+                <i class="glyphicon glyphicon-user"></i> {{ recall.author_name }}
+            </li>
+            <li class="recall-header-list-item">
+                <i class="glyphicon glyphicon-calendar"></i> {{ recall.date_create|date("d.m.Y") }}
+            </li>
+            <li class="recall-header-list-item">
+                <i class="glyphicon glyphicon-heart"></i> <span id="recall_likes_counter">{{ recall.likes }}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-body recall-content">
+        {{ recall.text }}
+    </div>
+    <div class="panel-footer recall-footer">
+        <button class="btn btn-primary btn-like" id="btn-like" data-id="{{ recall.id }}">Мне нравится</button>
+
+        <div class="btn-group btn-group-nav">
+            <a {% if recall.prev_id is not empty %}href="/view_recall/{{ recall.prev_id }}"{% endif %}
+               class="btn btn-primary"
+                    {% if recall.prev_id is empty %} disabled {% endif %}>
+                <i class="glyphicon glyphicon-chevron-left"></i>
+            </a>
+            <a {% if recall.next_id is not empty %}href="/view_recall/{{ recall.next_id }}"{% endif %}
+               class="btn btn-primary"
+               {% if recall.next_id is empty %} disabled {% endif %}>
+               <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

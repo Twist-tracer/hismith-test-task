@@ -1,0 +1,19 @@
+{% if(alert) %}
+    <div class="alert alert-{{ alert.success ? 'success' : 'danger' }}" role="alert">
+        {{ alert.message }}
+    </div>
+{% endif %}
+
+<form method="POST">
+    {% if(empty_name) %}
+        <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Гость">
+        </div>
+    {% endif %}
+    <div class="form-group">
+        <label for="text">Текст отзыва</label>
+        <textarea name="text" id="text" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Отправить</button>
+</form>

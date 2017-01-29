@@ -1,0 +1,41 @@
+{% set template = "layouts/" ~ layout ~ ".twig" %}
+
+{% extends template %}
+
+{% block content %}
+    {% if recalls is not empty %}
+        <table class="table table-bordered table-recalls">
+            <thead>
+                <tr>
+                    <th>
+                        {{ recalls.titles.author_name }}
+                    </th>
+                    <th>
+                        {{ recalls.titles.text }}
+                    </th>
+                    <th>
+                        {% include 'site/table_thead_button.twig' with {
+                            key: 'date_create',
+                            title: recalls.titles.date_create
+                        } %}
+                    </th>
+                    <th>
+                        {% include 'site/table_thead_button.twig' with {
+                            key: 'likes',
+                            title: recalls.titles.likes
+                        } %}
+                    </th>
+                </tr>
+            </thead>
+            {% for recall in recalls.items %}
+                <tr data-id="{{ recall.id }}">
+                    <td>{{ recall.author_name }}</td>
+                    <td>{{ recall.text }}</td>
+                    <td>{{ recall.date_create|date("d.m.Y") }}</td>
+                    <td>{{ recall.likes }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}
