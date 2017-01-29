@@ -1,0 +1,38 @@
+.table-recalls > thead th {
+  padding: 0 !important;
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.table-recalls > thead th > button {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+.table-recalls > thead th > button > .glyphicon {
+  float: right;
+  color: #ccc;
+}
+
+.table-recalls > tbody > tr:hover {
+  cursor: pointer;
+  background-color: #f4f7ff;
+}
+
+.recall .recall-header .recall-header-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.recall .recall-header .recall-header-list > .recall-header-list-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.recall .recall-footer > .btn-group-nav {
+  float: right;
+}
